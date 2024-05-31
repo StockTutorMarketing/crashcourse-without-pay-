@@ -25,7 +25,7 @@ const Combine = () => {
 
 
 
- 
+
 
   return (
     <>
@@ -38,112 +38,26 @@ const Combine = () => {
           >
             {/* *************************************Left Portion************************************************* */}
             {/* ************************************************************************************************** */}
+            <div className="left-box">
+              <div className="left-text-box">
+                <p style={{ fontSize: '40px', fontWeight: '600', width: '90%', color: 'white' }}>Take charge of your future with <span style={{ color: 'gold' }}>Stocktutor's 3 Hours</span> Crash Course</p>
+              </div>
+              <div className="form-container">
+                <label htmlFor="name">Name</label>
+                <input type="text" id="name" name="name" />
 
-            <Stack
-              width={{ base: "100%", sm: "100%", md: "80%", lg: "70%" }}
-              gap={{ base: 4, sm: 8, md: 8, lg: 12 }}
-              margin={"auto"}
-            >
-              <Box justifyContent={'center'} display={{ base: 'block', sm: 'block', md: 'none', lg: 'none' }}>
-                <Flex gap={{ base: 2, sm: 2, md: 0, lg: 0 }} justifyContent={'center'} alignItems={'center'}>
-                  <Image width={'22%'} height={'100%'} src={logo} alt="logo" />
-                  <Box className="topText" width={{ base: "100%", sm: "100%", md: "100%", lg: "160%" }}>
-                    {/* <Image src={crashtext} alt="crashcoursetext"/> */}
-                    {text.map((el, i) => (
-                      <motion.span
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{
-                          duration: 0.50,
-                          delay: i / 10,
-                        }}
-                        key={i}
-                      >
-                        {el}{" "}
-                      </motion.span>
-                    ))}
-                  </Box>
-                </Flex>
-              </Box>
+                <label htmlFor="contact">Contact</label>
+                <input type="text" id="contact" name="contact" />
 
-              <Box display={{ base: 'none', sm: 'none', md: 'block', lg: 'block' }}>
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" name="email" />
+              </div>
+              <button className="submimt-btn" style={{backgroundColor:"gold", width:'80%', padding:'20px', borderRadius:'16px', boxShadow:'8px 8px white', border:'1px solid black', fontSize:'20px', fontWeight:"600"}}>
+                  Book your seat now!
+              </button>
+            </div>
 
-                <Box alignItems={'center'} gap={5} display={{ base: 'none', sm: 'none', md: 'flex', lg: 'flex' }} width={{ base: "100%", sm: "100%", md: "100%", lg: "110%" }}>
-                  <Image width={'20%'} height={'100%'} src={logo} alt="logo" />
-                  <Image src={crashtext} alt="crashcoursetext" />
-                </Box>
-              </Box>
 
-              <Box>
-                <Text
-                  textAlign={{
-                    base: "center",
-                    sm: "center",
-                    md: "center",
-                    lg: "justify",
-                  }}
-                  color={"whitesmoke"}
-                  fontSize={{ base: 16, sm: 16, md: 16, lg: 20 }}
-                >
-                  Discover the ins and outs of stock trading in the most
-                  simplest and user-friendly way. Elevate your investment
-                  knowledge with StockTutor's easy-to-follow guidance.
-                </Text>
-              </Box>
-
-              <SimpleGrid
-                fontSize={{ base: 12, sm: 12, md: 16, lg: 16 }}
-                columns={{ base: 2, sm: 2, md: 2, lg: 2 }}
-                gap={{ base: 4, sm: 8, md: 8, lg: 12 }}
-                margin={"auto"}
-                justifyContent={"space-between"}
-                width="100%"
-              >
-                <Flex
-                  className="gradient_anim_btn_combine"
-                  borderRadius={10}
-                  padding={{
-                    base: "4px 8px",
-                    sm: "4px 8px",
-                    md: "8px 12px",
-                    lg: "8px 12px",
-                  }}
-                  variant="outline"
-                  gap={2}
-                  justifyItems={"center"}
-                  alignItems={"center"}
-                >
-                  <FaCalendar />
-                  <Box>2nd June, 2024</Box>
-                </Flex>
-
-                <Flex
-                  className="gradient_anim_btn_combine"
-                  borderRadius={10}
-                  padding={"8px 12px"}
-                  variant="outline"
-                  gap={2}
-                  alignItems={"center"}
-                  width={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
-                >
-                  <FaClock />
-                  <Box>4:00 PM - 7:00 PM</Box>
-                </Flex>
-              </SimpleGrid>
-              <Link to="https://pages.razorpay.com/stocktutor">
-              <Button
-                className="button-50"
-                role="button"
-                padding={{ base: 4, sm: 4, md: 8, lg: 8 }}
-                borderRadius={20}
-                bg={"#F5C114"}
-                fontWeight={800}
-                fontSize={{ base: 12, sm: 12, md: 16, lg: 20 }}
-              >
-                Book your seat now at ₹399 only
-              </Button>
-              </Link>
-            </Stack>
 
             {/* ************************************* IFrame ************************************************* */}
             {/* ************************************************************************************** */}
@@ -154,23 +68,23 @@ const Combine = () => {
               <Box>
 
 
-              <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
-  <iframe 
-    id="vimeoPlayer" 
-    src="https://player.vimeo.com/video/947728794?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-    frameborder="0" 
-    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-    style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%' }} 
-    title="Crash course video" 
-    controls={false}
-  ></iframe>
-</div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<script>
-  var player = new Vimeo.Player(document.getElementById('vimeoPlayer'));
-  player.setLoop(true);
-  player.play();
-</script>
+                <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+                  <iframe
+                    id="vimeoPlayer"
+                    src="https://player.vimeo.com/video/947728794?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                    style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%' }}
+                    title="Crash course video"
+                    controls={false}
+                  ></iframe>
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+                <script>
+                  var player = new Vimeo.Player(document.getElementById('vimeoPlayer'));
+                  player.setLoop(true);
+                  player.play();
+                </script>
 
 
 
