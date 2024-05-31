@@ -8,20 +8,117 @@ import {
   SimpleGrid,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import "./Combine.css";
-import { FaCalendar } from "react-icons/fa";
-import { FaClock } from "react-icons/fa6";
+
 import { FaCircleCheck } from "react-icons/fa6";
 import textbg from "../Data/textbg.webp";
+import { useState } from "react";
+import axios from "axios";
+import logo from "../Data/logo.png"
+import { useNavigate } from "react-router-dom";
+
+
 import crashtext from "../Data/animatedtext.gif";
 import { motion } from "framer-motion";
-import logo from "../Data/logo.png"
-import { Link } from "react-router-dom";
+
+
+
 
 const Combine = () => {
   const text = "Take Charge of Your Future with StockTutor's 3 Hours Crash Course".split(" ");
 
+  const navigate = useNavigate()
+  const toast = useToast();
+  const [fname, setFname] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    const re = /^[0-9]{10,15}$/;
+    return re.test(phone);
+  };
+
+  const handleClick = async () => {
+    if (!fname || !email || !phone) {
+      toast({
+        title: "All fields are required.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      toast({
+        title: "Invalid email address.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    if (!validatePhone(phone)) {
+      toast({
+        title: "Invalid phone number.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    try {
+      const response = await axios.post(process.env.REACT_APP_BACKEND_URL , {
+        FullName: fname,
+        Email: email,
+        Phone: phone,
+      });
+
+      if (phone.length !== 10) {
+        toast({
+          title: "Enter Correact phone Number",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+      }
+
+      if (response.data.message === "User created") {
+        toast({
+          title: "Registration successful.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+        navigate("/success")
+      } else {
+        toast({
+          title: response.data.message,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "An error occurred.",
+        description: error.response?.data?.message || error.message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  };
 
 
 
@@ -30,7 +127,10 @@ const Combine = () => {
   return (
     <>
       <Box bgGradient="linear(to-r, #131543, #525368, #131543)" pb={{ base: 2, sm: 4, md: 16, lg: 16 }}>
+
+
         <Stack p={12} gap={{ base: 4, sm: 8, md: 8, lg: 12 }}>
+
           <SimpleGrid
             columns={{ base: 1, sm: 1, md: 1, lg: 2 }}
             justifyContent={"space-around"}
@@ -38,22 +138,65 @@ const Combine = () => {
           >
             {/* *************************************Left Portion************************************************* */}
             {/* ************************************************************************************************** */}
-            <div className="left-box">
+
+
+            <div className="left-box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'  }}>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+              <Box display={{ base: 'block', sm: 'block', md: 'block', lg: 'block' }} style={{paddingLeft:'80px'}}>
+
+          {/* <Box alignItems={'center'} gap={5}  width={{ base: "100%", sm: "100%", md: "100%", lg: "110%" }}>
+                  
+                </Box>  */}
+               
+
+                <div style={{display:"flex"}}>
+                <Image width={'20%'} height={'100%'} src={logo} alt="logo" />
+                  <Image style={{ maxWidth: "60%" }} src={crashtext} alt="crashcoursetext" />
+                </div>
+              </Box>
+
               <div className="left-text-box">
-                <p style={{ fontSize: '36px', fontWeight: '500', width: '80%', color: 'white', lineHeight:'46px'}}>Take charge of your future with <span style={{ color: 'gold' }}>Stocktutor's 3 Hours</span> Crash Course</p>
+
               </div>
               <div className="form-container">
                 <label htmlFor="name">Name</label>
-                <input type="text" id="name" name="name"  required placeholder="Enter your name"/>
+                <input type="text" id="name" name="name" value={fname} onChange={(e) => setFname(e.target.value)} required placeholder="Full name" />
 
-                <label htmlFor="contact">Contact</label>
-                <input type="text" id="contact" name="contact" required placeholder="Enter your number"/>
 
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email"/>
+                <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Email address" />
+
+                <label htmlFor="contact">Contact</label>
+                <input type="text" id="contact" name="contact" value={phone} onChange={(e) => setPhone(e.target.value)} required placeholder="Phone number" />
+
+
               </div>
-              <button className="submimt-btn" style={{backgroundColor:"gold", width:'75%', padding:'16px', borderRadius:'16px', boxShadow:'8px 8px white', border:'1px solid black', fontSize:'20px', fontWeight:"600"}}>
-                  Book your seat now!
+              <button onClick={handleClick} className="submimt-btn" style={{ backgroundColor: "gold", width: '75%', padding: '16px', borderRadius: '16px', boxShadow: '8px 8px white', border: '1px solid black', fontSize: '20px', fontWeight: "600" }}>
+                Book your seat now!
               </button>
             </div>
 
@@ -71,12 +214,11 @@ const Combine = () => {
                 <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
                   <iframe
                     id="vimeoPlayer"
-                    src="https://player.vimeo.com/video/947728794?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                    frameborder="0"
+                    src="https://player.vimeo.com/video/947728794?badge=0&autopause=0&player_id=0&loop=1&app_id=58479&loop=1&byline=0&title=0"
+                    frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                    style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', borderRadius:'20px 20px 0px 0px' }}
+                    style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', borderRadius: '20px 20px 0px 0px' }}
                     title="Crash course video"
-                    controls={false}
                   ></iframe>
                 </div>
                 <script src="https://player.vimeo.com/api/player.js"></script>

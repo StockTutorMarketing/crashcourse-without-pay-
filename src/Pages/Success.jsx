@@ -8,10 +8,10 @@ const Success = () => {
     <Box textAlign="center" justifyContent={'center'} pt={8} px={6}>
       <CheckCircleIcon boxSize={'50px'} color={'green.500'} />
       <Heading as="h2" size="xl" mt={6} mb={2}>
-        Payment Successful
+        Registration Successful
       </Heading>
       <Text color={'gray.500'}>
-        Payment has been successfully done...!!
+        Registration has been successfully done...!!
       </Text>
 
       <Image width={{base:'200%', sm:'150%', md:'100%', lg:'100%'}} src={alltutors}/>

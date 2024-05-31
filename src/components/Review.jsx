@@ -1,6 +1,7 @@
 import { Box, Heading, Text, Grid } from "@chakra-ui/react";
 import { useEffect, useRef } from "react";
 import Vimeo from "@vimeo/player";
+import "./Review.css"
 
 export default function Review() {
   const videoRef = useRef(null);
@@ -17,12 +18,12 @@ export default function Review() {
 
       const handlePlayPause = ([entry]) => {
         if (entry.isIntersecting) {
-          player.play().catch(error => {
-            console.error('Error playing the video:', error);
+          player.play().catch((error) => {
+            console.error("Error playing the video:", error);
           });
         } else {
-          player.pause().catch(error => {
-            console.error('Error pausing the video:', error);
+          player.pause().catch((error) => {
+            console.error("Error pausing the video:", error);
           });
         }
       };
@@ -41,7 +42,7 @@ export default function Review() {
   }, []);
 
   return (
-    <Grid  background={"#00013A"} marginLeft="auto" marginRight="auto" >
+    <Grid background={"#00013A"} marginLeft="auto" marginRight="auto">
       <Grid
         templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
         gap={6}
@@ -50,7 +51,7 @@ export default function Review() {
         alignItems="center"
         justifyContent="center"
       >
-        <Box  fontFamily="roboto" color="white" py={8} px={6} textAlign="center">
+        <Box fontFamily="roboto" color="white" py={8} px={6} textAlign="center">
           <Heading fontSize={{ base: 30, sm: 29, md: 36, lg: 40 }}>
             Voices of our{" "}
             <span
@@ -64,7 +65,16 @@ export default function Review() {
             </span>{" "}
             Learners
           </Heading>
-          <Text style={{color:"whitesmoke"}} ml={78} align={"left"} maxWidth={"70%"} mt={4} size={"24px"} color="gray">
+          <Text
+            style={{ color: "whitesmoke" }}
+            py={8} px={6}
+            align={"left"}
+            maxWidth={"70%"}
+            paddingLeft={"12%"}
+            mt={4}
+            fontSize={"24px"}
+            className="myText"
+          >
             Excited to welcome you to our community of professional traders,
             where over{" "}
             <span
@@ -98,10 +108,17 @@ export default function Review() {
           py={8}
           px={6}
         >
-          <div style={{ width: "100%", position: "relative", paddingBottom: "56.25%" }}>
+          <div
+            style={{
+              width: "100%",
+              position: "relative",
+              paddingBottom: "56.25%",
+            }}
+          >
             <iframe
               ref={videoRef}
-              src="https://player.vimeo.com/video/952205364?badge=0&autopause=0&player_id=0&app_id=58479"
+              id="vimeoPlayer"
+              src="https://player.vimeo.com/video/952205364?badge=0&autopause=0&player_id=0&loop=1&app_id=58479&loop=1&byline=0&title=0"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
               style={{
                 position: "absolute",
@@ -109,8 +126,9 @@ export default function Review() {
                 left: "0",
                 width: "100%",
                 height: "100%",
+                borderRadius: "20px 20px 0px 0px",
               }}
-              title="Testimonial Video"
+              title="Crash course video"
             ></iframe>
           </div>
         </Box>
