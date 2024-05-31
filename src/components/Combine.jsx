@@ -18,7 +18,7 @@ import { useState } from "react";
 import axios from "axios";
 import logo from "../Data/logo.png"
 import { useNavigate } from "react-router-dom";
-
+import offer from "../199.gif"
 
 import crashtext from "../Data/animatedtext.gif";
 import { motion } from "framer-motion";
@@ -78,7 +78,7 @@ const Combine = () => {
     }
 
     try {
-      const response = await axios.post(process.env.REACT_APP_BACKEND_URL , {
+      const response = await axios.post(process.env.REACT_APP_BACKEND_URL, {
         FullName: fname,
         Email: email,
         Phone: phone,
@@ -126,6 +126,8 @@ const Combine = () => {
 
   return (
     <>
+
+
       <Box bgGradient="linear(to-r, #131543, #525368, #131543)" pb={{ base: 2, sm: 4, md: 16, lg: 16 }}>
 
 
@@ -140,34 +142,10 @@ const Combine = () => {
             {/* ************************************************************************************************** */}
 
 
-            <div className="left-box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'  }}>
+            <div className="left-box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-          
-
-
-
-
-
-
-
-
-
-
-
-           
-
-
-
-
-
-
-
-
-
-
-
-              <Box  className='animated-textbox' display={{ base: 'block', sm: 'block', md: 'block', lg: 'block' }} >
-                <div style={{display:"flex", gap:'16px', alignItems:'center', paddingLeft:'20px'}}>
+              <Box className='animated-textbox' display={{ base: 'block', sm: 'block', md: 'block', lg: 'block' }} >
+                <div style={{ display: "flex", gap: '16px', alignItems: 'center', paddingLeft: '20px' }}>
                   <Image width={'20%'} height={'100%'} src={logo} alt="logo" />
                   <Image style={{ maxWidth: "100%" }} src={crashtext} alt="crashcoursetext" />
                 </div>
@@ -201,8 +179,12 @@ const Combine = () => {
             <Box
               width={{ base: "100%", sm: "100%", md: "70%", lg: "70%" }}
               margin={"auto"}
-              boxShadow={"0px 12px 12px 12px"}
+              zIndex={'0'}
+              position={'relative'}
             >
+              <div>
+                <img src={offer} className="offer-img" />
+              </div>
               <Box>
 
 
@@ -269,17 +251,17 @@ const Combine = () => {
                 </Grid>
 
 
-                <div style={{display:'flex', gap:"10px", padding:"2%", paddingLeft:"5%", paddingRight:"5%"}}>
-                <Flex className="gradient_anim_btn_combine1">
-                  <FaCalendar />
-                  <Box>2nd June, 2024</Box>
-                </Flex>
+                <div style={{ display: 'flex', gap: "10px", padding: "2%", paddingLeft: "5%", paddingRight: "5%" }}>
+                  <Flex className="gradient_anim_btn_combine1">
+                    <FaCalendar />
+                    <Box>2nd June, 2024</Box>
+                  </Flex>
 
-                <Flex className="gradient_anim_btn_combine1">
-                  <FaClock />
-                  <Box>4:00 PM - 7:00 PM</Box>
-                </Flex>
-              </div>
+                  <Flex className="gradient_anim_btn_combine1">
+                    <FaClock />
+                    <Box>4:00 PM - 7:00 PM</Box>
+                  </Flex>
+                </div>
 
 
               </Box>

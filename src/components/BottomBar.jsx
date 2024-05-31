@@ -119,7 +119,7 @@ const BottomBar = () => {
   };
 
   return (
-    <div style={{ zIndex: "5" }}>
+    <div style={{ zIndex: "5" , width:'100%'}}>
       <Box
         className="gradient_anim_btn"
         position="fixed"
