@@ -40,19 +40,19 @@ const Combine = () => {
             {/* ************************************************************************************************** */}
             <div className="left-box">
               <div className="left-text-box">
-                <p style={{ fontSize: '40px', fontWeight: '600', width: '90%', color: 'white' }}>Take charge of your future with <span style={{ color: 'gold' }}>Stocktutor's 3 Hours</span> Crash Course</p>
+                <p style={{ fontSize: '36px', fontWeight: '500', width: '80%', color: 'white', lineHeight:'46px'}}>Take charge of your future with <span style={{ color: 'gold' }}>Stocktutor's 3 Hours</span> Crash Course</p>
               </div>
               <div className="form-container">
                 <label htmlFor="name">Name</label>
-                <input type="text" id="name" name="name" />
+                <input type="text" id="name" name="name"  required placeholder="Enter your name"/>
 
                 <label htmlFor="contact">Contact</label>
-                <input type="text" id="contact" name="contact" />
+                <input type="text" id="contact" name="contact" required placeholder="Enter your number"/>
 
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" />
+                <input type="email" id="email" name="email" required placeholder="Enter your email"/>
               </div>
-              <button className="submimt-btn" style={{backgroundColor:"gold", width:'80%', padding:'20px', borderRadius:'16px', boxShadow:'8px 8px white', border:'1px solid black', fontSize:'20px', fontWeight:"600"}}>
+              <button className="submimt-btn" style={{backgroundColor:"gold", width:'75%', padding:'16px', borderRadius:'16px', boxShadow:'8px 8px white', border:'1px solid black', fontSize:'20px', fontWeight:"600"}}>
                   Book your seat now!
               </button>
             </div>
@@ -74,7 +74,7 @@ const Combine = () => {
                     src="https://player.vimeo.com/video/947728794?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                     frameborder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                    style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%' }}
+                    style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', borderRadius:'20px 20px 0px 0px' }}
                     title="Crash course video"
                     controls={false}
                   ></iframe>
@@ -94,7 +94,7 @@ const Combine = () => {
                 bgImage={textbg}
               >
                 <Grid
-                  padding={{ base: 4, sm: 4, md: 8, lg: 12 }}
+                  padding={{ base: 2, sm: 2, md: 4, lg: 8 }}
                   fontWeight={600}
                   fontSize={{ base: 14, sm: 16, md: 20, lg: 20 }}
                   gap={2}
