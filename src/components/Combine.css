@@ -95,18 +95,38 @@
     background-size: 200% auto;
     -webkit-animation: gradient_move 5s ease infinite;
     animation: gradient_move 5s ease infinite;
+    color: white;
+  }
+
+  .gradient_anim_btn_combine1{
+    gap: 8px;
+    width: 60%;
+    background: -webkit-linear-gradient(225deg, #050845, #6270cf,             
+    #050845) 5% 5% / 5% 5%;
+    background-size: 200% auto;
+    -webkit-animation: gradient_move 5s ease infinite;
+    animation: gradient_move 5s ease infinite; 
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px 8px 12px;
+    border-radius: 8px;
+
   }
 
 
 
 /* For mobile devices */
-@media (max-width:500px) {
+@media (min-width:500px) {
    
     .left-box button{
       padding: 4px;
       font-size: 12px;
       width: 100%;
       font-weight: 400;
+    }
+    .animated-textbox{
+      padding-left: 60px;
     }
 }
 

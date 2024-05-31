@@ -108,6 +108,9 @@ export default function Review() {
           py={8}
           px={6}
         >
+
+{/* <video src=""></video> */}
+
           <div
             style={{
               width: "100%",
@@ -118,8 +121,7 @@ export default function Review() {
             <iframe
               ref={videoRef}
               id="vimeoPlayer"
-              src="https://player.vimeo.com/video/952205364?badge=0&autopause=0&player_id=0&loop=1&app_id=58479&loop=1&byline=0&title=0"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+              src="https://player.vimeo.com/video/952205364??autoplay=1&loop=1&autopause=0badge=0&player_id=0&loop=1&app_id=58479&loop=1&byline=0&title=0"
               style={{
                 position: "absolute",
                 top: "0",

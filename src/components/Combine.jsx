@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import "./Combine.css";
 
-import { FaCircleCheck } from "react-icons/fa6";
+import { FaCalendar, FaCircleCheck, FaClock } from "react-icons/fa6";
 import textbg from "../Data/textbg.webp";
 import { useState } from "react";
 import axios from "axios";
@@ -166,16 +166,10 @@ const Combine = () => {
 
 
 
-              <Box display={{ base: 'block', sm: 'block', md: 'block', lg: 'block' }} style={{paddingLeft:'80px'}}>
-
-          {/* <Box alignItems={'center'} gap={5}  width={{ base: "100%", sm: "100%", md: "100%", lg: "110%" }}>
-                  
-                </Box>  */}
-               
-
-                <div style={{display:"flex"}}>
-                <Image width={'20%'} height={'100%'} src={logo} alt="logo" />
-                  <Image style={{ maxWidth: "60%" }} src={crashtext} alt="crashcoursetext" />
+              <Box  className='animated-textbox' display={{ base: 'block', sm: 'block', md: 'block', lg: 'block' }} >
+                <div style={{display:"flex", gap:'16px', alignItems:'center', paddingLeft:'20px'}}>
+                  <Image width={'20%'} height={'100%'} src={logo} alt="logo" />
+                  <Image style={{ maxWidth: "100%" }} src={crashtext} alt="crashcoursetext" />
                 </div>
               </Box>
 
@@ -207,6 +201,7 @@ const Combine = () => {
             <Box
               width={{ base: "100%", sm: "100%", md: "70%", lg: "70%" }}
               margin={"auto"}
+              boxShadow={"0px 12px 12px 12px"}
             >
               <Box>
 
@@ -272,8 +267,25 @@ const Combine = () => {
                     <Box>Trading Strategies</Box>
                   </Flex>
                 </Grid>
+
+
+                <div style={{display:'flex', gap:"10px", padding:"2%", paddingLeft:"5%", paddingRight:"5%"}}>
+                <Flex className="gradient_anim_btn_combine1">
+                  <FaCalendar />
+                  <Box>2nd June, 2024</Box>
+                </Flex>
+
+                <Flex className="gradient_anim_btn_combine1">
+                  <FaClock />
+                  <Box>4:00 PM - 7:00 PM</Box>
+                </Flex>
+              </div>
+
+
               </Box>
             </Box>
+
+
           </SimpleGrid>
 
           {/* ************************************************* Bottom Section ************************************************ */}
