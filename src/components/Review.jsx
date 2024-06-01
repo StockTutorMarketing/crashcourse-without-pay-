@@ -51,7 +51,7 @@ export default function Review() {
         alignItems="center"
         justifyContent="center"
       >
-        <Box fontFamily="roboto" color="white" py={8} px={6} textAlign="center">
+        <Box fontFamily="roboto" color="white" py={8} px={8} textAlign="center">
           <Heading fontSize={{ base: 30, sm: 29, md: 36, lg: 40 }}>
             Voices of our{" "}
             <span
@@ -69,10 +69,10 @@ export default function Review() {
             style={{ color: "whitesmoke" }}
             py={8} px={6}
             align={"left"}
-            maxWidth={"70%"}
+            maxWidth={"80%"}
             paddingLeft={"12%"}
             mt={4}
-            fontSize={"24px"}
+            fontSize={"20px"}
             className="myText"
           >
             Excited to welcome you to our community of professional traders,

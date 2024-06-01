@@ -62,7 +62,7 @@
 .form-container {
   padding: 16px 0px 16px 0px;
   border-radius: 5px;
-  width: 75%;
+  width: 70%;
 }
 
 .form-container label {
@@ -88,14 +88,23 @@
   z-index: 200;
   transform: rotate(45deg)
 }
-@media (min-width: 768px) {
+@media (min-width: 608px) {
   .button-50 {
     padding: 12px 50px;
+  }
+  .animated-textbox{
+    padding-left: 60px;
   }
 
  
 }
-
+.submimt-btn{
+  background: -webkit-linear-gradient(225deg, #F4C113, #ffe58f,             
+    #F4C113) 10% 5% / 5% 10%;
+    background-size: 200% auto;
+    -webkit-animation: gradient_move 2s ease infinite;
+    animation: gradient_move 5s ease infinite;
+}
 .gradient_anim_btn_combine {
   width: 100%;
     background: -webkit-linear-gradient(225deg, #EBB913, #FFEAA3,             
@@ -125,8 +134,15 @@
 
 
 /* For mobile devices */
-@media (min-width:500px) {
-   
+@media (max-width:600px) {
+   .form-container input[type="text"],
+   .form-container input[type="email"] {
+     width: 100%;
+     padding: 6px;
+     margin-bottom: 16px;
+     border: none;
+     border-radius: 5px;
+   }
     .left-box button{
       padding: 4px;
       font-size: 12px;
@@ -134,7 +150,10 @@
       font-weight: 400;
     }
     .animated-textbox{
-      padding-left: 60px;
+      padding-left: 25px;
+    }
+    .submimt-btn{
+      width: 200px;
     }
 }
 

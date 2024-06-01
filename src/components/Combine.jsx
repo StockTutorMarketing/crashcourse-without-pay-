@@ -145,9 +145,9 @@ const Combine = () => {
             <div className="left-box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
               <Box className='animated-textbox' display={{ base: 'block', sm: 'block', md: 'block', lg: 'block' }} >
-                <div style={{ display: "flex", gap: '16px', alignItems: 'center', paddingLeft: '20px' }}>
-                  <Image width={'20%'} height={'100%'} src={logo} alt="logo" />
-                  <Image style={{ maxWidth: "80%" }} src={crashtext} alt="crashcoursetext" />
+                <div style={{ display: "flex", gap: '24px', alignItems: 'center', paddingLeft: '20px' }}>
+                  <Image width={'25%'} height={'100%'} src={logo} alt="logo" />
+                  <Image style={{maxWidth: "80%" }} src={crashtext} alt="crashcoursetext" />
                 </div>
               </Box>
 
@@ -167,7 +167,7 @@ const Combine = () => {
 
 
               </div>
-              <button onClick={handleClick} className="submimt-btn" style={{ backgroundColor: "gold", width: '75%', padding: '16px', borderRadius: '16px', boxShadow: '8px 8px white', border: '1px solid black', fontSize: '20px', fontWeight: "600" }}>
+              <button onClick={handleClick} className="submimt-btn" style={{width: '72%', padding: '16px', borderRadius: '16px', boxShadow: '8px 8px white', border: '1px solid black', fontSize: '20px', fontWeight: "600" }}>
                 Book your seat now!
               </button>
             </div>

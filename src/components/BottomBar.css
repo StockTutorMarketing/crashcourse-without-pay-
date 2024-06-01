@@ -24,3 +24,9 @@
     padding: 4%;
     height: auto;
 }
+.main-box{
+  background: -webkit-linear-gradient(245deg, #050845, #767689,             
+  #050845) 50%;
+  background-size: 200% auto;
+  
+}
