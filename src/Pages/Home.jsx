@@ -48,6 +48,8 @@ const Home = () => {
                     <BottomBar />
                 </div>
             )}
+
+
         </>
     )
 }

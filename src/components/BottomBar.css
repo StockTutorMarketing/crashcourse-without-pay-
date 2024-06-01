@@ -1,7 +1,7 @@
 .gradient_anim_btn {
     background: -webkit-linear-gradient(225deg, #171945, #686a82,             
     #171945) 10% 10% / 50% 50%;
-    background-size: 200% auto;
+    background-size: 100%;
     -webkit-animation: gradient_move 10s ease infinite;
     animation: gradient_move 10s ease infinite;
   }

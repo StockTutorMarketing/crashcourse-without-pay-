@@ -18,21 +18,20 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AllTutors from "../Data/AllTutorsForm.png";
 import { PhoneIcon } from "@chakra-ui/icons";
-import "./BottomBar.css";
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import "./BottomBar.css";
 
 const BottomBar = () => {
+  const toast = useToast();
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const toast = useToast();
   const [fname, setFname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -67,7 +66,7 @@ const BottomBar = () => {
 
     if (!validatePhone(phone)) {
       toast({
-        title: "Invalid phone number",
+        title: "Invalid phone number.",
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -76,7 +75,7 @@ const BottomBar = () => {
     }
 
     try {
-      const response = await axios.post(process.env.REACT_APP_BACKEND_URL || "", {
+      const response = await axios.post(process.env.REACT_APP_BACKEND_URL, {
         FullName: fname,
         Email: email,
         Phone: phone,
@@ -84,7 +83,7 @@ const BottomBar = () => {
 
       if (phone.length !== 10) {
         toast({
-          title: "Enter Correact phone Number",
+          title: "Enter Correct phone Number",
           status: "success",
           duration: 5000,
           isClosable: true,
@@ -98,7 +97,7 @@ const BottomBar = () => {
           duration: 5000,
           isClosable: true,
         });
-        navigate("/success")
+        navigate("/success");
       } else {
         toast({
           title: response.data.message,
@@ -119,19 +118,19 @@ const BottomBar = () => {
   };
 
   return (
-    <div style={{ zIndex: "5" , width:'100%'}}>
+    <div>
       <Box
         className="gradient_anim_btn"
         position="fixed"
         bottom={0}
-        height={{ base: 70, sm: 110, md: "120", lg: "130" }}
-        padding={{ base: 2, sm: 5, md: 5, lg: 5 }}
+        width="100%"
+        height={{ base: 70, sm: 110, md: "100", lg: "100" }} // Adjusted height
+        padding={"2%"}
+        paddingBottom={"10px"} // Added 10px padding from the bottom
       >
         <Box
-          width={{ base: "100%", sm: "100%", md: "90%", lg: "84%" }}
+          width="100%"
           margin={"auto"}
-          mt={{ sm: 0, md: 0, lg: 0 }}
-          // border={'2px solid red'}
           alignItems={"center"}
           justifyContent={"center"}
         >
@@ -151,14 +150,10 @@ const BottomBar = () => {
                 src={AllTutors}
               />
             </Box>
-            <Box
-              width={{ base: "100%" }}
-            >
+            <Box width={{ base: "100%" }}>
               <Flex justifyContent={"space-between"}>
-                <Stack
-                >
+                <Stack>
                   <Stack
-
                     gap={{ base: 0, sm: 1, md: 1, lg: 0 }}
                     width={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
                     marginTop={"1"}
@@ -168,8 +163,16 @@ const BottomBar = () => {
                       fontSize={32}
                       fontWeight={640}
                     >
-                      <Flex align={"center"} gap={{ base: 1, sm: 2, md: 3, lg: 3 }}>
-                        <Flex alignItems={'center'} fontSize={{ base: 16, sm: 18, md: 20, lg: 26 }}><FaIndianRupeeSign /> 199{" "}</Flex>
+                      <Flex
+                        align={"center"}
+                        gap={{ base: 1, sm: 2, md: 3, lg: 3 }}
+                      >
+                        <Flex
+                          alignItems={"center"}
+                          fontSize={{ base: 16, sm: 18, md: 20, lg: 26 }}
+                        >
+                          <FaIndianRupeeSign /> 199{" "}
+                        </Flex>
 
                         <Text fontSize={{ base: 12, sm: 14, md: 16, lg: 20 }}>
                           <s
@@ -188,98 +191,97 @@ const BottomBar = () => {
                       fontWeight={400}
                       color={"whitesmoke"}
                     >
-                      2nd June, 4:00 PM - 7:00 PM
+                      9th June, 4:00 PM - 7:00 PM
                     </Text>
                   </Stack>
                 </Stack>
 
-                <Box
-                  alignItems={"center"}
-                >
+                <Box alignItems={"center"}>
                   <Button
                     width={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
                     size={{ base: "md", sm: "md", md: "md", lg: "lg" }}
                     borderRadius={20}
                     bg={"rgb(255,200,69)"}
                     color={"black"}
-                    fontSize={{ base: 8, sm: 12, md: 16, lg: 24 }}
+                    fontSize={{ base: 15, sm: 15, md: 15, lg: 24 }}
                     fontWeight={640}
                     mt={{ base: "4%", sm: "15%", md: "15%", lg: "15%" }}
+                    marginBottom={"5%"}
                     onClick={onOpen}
                   >
-                    Book Your Seat Now
+                    Book your seat now!
                   </Button>
-
-                  <Modal isOpen={isOpen} onClose={onClose}>
-                    <ModalOverlay />
-                    <ModalContent>
-                      <ModalBody>
-                        <Box className="modalformbox">
-                          <Box>
-                            <Image src={AllTutors} />
-                          </Box>
-                          <Flex className="formbox-flex">
-                            <FormControl id="fname" isRequired>
-                              <FormLabel>Name</FormLabel>
-                              <Input
-                                placeholder="Full name"
-                                value={fname}
-                                type="text"
-                                onChange={(e) => setFname(e.target.value)}
-                              />
-                            </FormControl>
-                          </Flex>
-
-                          <FormControl id="email" isRequired>
-                            <FormLabel>Email</FormLabel>
-                            <Input
-                              placeholder="Email address"
-                              value={email}
-                              type="email"
-                              onChange={(e) => setEmail(e.target.value)}
-                            />
-                          </FormControl>
-
-                          <FormControl id="phone" isRequired>
-                            <FormLabel>Contact</FormLabel>
-                            <InputGroup>
-                              <InputLeftElement pointerEvents="none">
-                                <PhoneIcon color="gray.400" />
-                              </InputLeftElement>
-                              <Input
-                                type="number"
-                                placeholder="Phone number"
-                                value={phone}
-                                onChange={(e) => setPhone(e.target.value)}
-                              />
-                            </InputGroup>
-                          </FormControl>
-
-                          <Box margin={"auto"} mt={4}>
-                            <Button
-                              //   width={"100%"}
-                              bgColor={"#EBB913"}
-                              onClick={handleClick}
-                              color={"rgb(5,8,69)"}
-                              _hover={{
-                                color: "#EBB913",
-                                bgColor: "rgb(5,8,69)",
-                                fontsize: 40,
-                              }}
-                            >
-                              Book Your Seat Now
-                            </Button>
-                          </Box>
-                        </Box>
-                      </ModalBody>
-                    </ModalContent>
-                  </Modal>
                 </Box>
               </Flex>
             </Box>
           </Flex>
         </Box>
       </Box>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalBody>
+            <Box>
+              <Box>
+                <Image src={AllTutors} />
+              </Box>
+              <Flex className="formbox-flex">
+                <FormControl id="fname" isRequired>
+                  <FormLabel>Name</FormLabel>
+                  <Input
+                    placeholder="Full name"
+                    value={fname}
+                    type="text"
+                    onChange={(e) => setFname(e.target.value)}
+                  />
+                </FormControl>
+              </Flex>
+
+              <FormControl id="email" isRequired>
+                <FormLabel>Email</FormLabel>
+                <Input
+                  placeholder="Email address"
+                  value={email}
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </FormControl>
+
+              <FormControl id="phone" isRequired>
+                <FormLabel>Contact</FormLabel>
+                <InputGroup>
+                  <InputLeftElement pointerEvents="none">
+                    <PhoneIcon color="gray.400" />
+                  </InputLeftElement>
+                  <Input
+                    type="number"
+                    placeholder="Phone number"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                </InputGroup>
+              </FormControl>
+
+              <Box margin={"auto"} mt={4}>
+                <Button
+                  width={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
+                  size={{ base: "md", sm: "md", md: "md", lg: "lg" }}
+                  borderRadius={20}
+                  bg={"rgb(255,200,69)"}
+                  color={"black"}
+                  fontSize={{ base: 8, sm: 12, md: 16, lg: 24 }}
+                  fontWeight={640}
+                  mt={{ base: "4%", sm: "15%", md: "15%", lg: "15%" }}
+                  onClick={handleClick}
+                >
+                  Book Your Seat Now
+                </Button>
+              </Box>
+            </Box>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </div>
   );
 };

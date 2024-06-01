@@ -147,7 +147,7 @@ const Combine = () => {
               <Box className='animated-textbox' display={{ base: 'block', sm: 'block', md: 'block', lg: 'block' }} >
                 <div style={{ display: "flex", gap: '16px', alignItems: 'center', paddingLeft: '20px' }}>
                   <Image width={'20%'} height={'100%'} src={logo} alt="logo" />
-                  <Image style={{ maxWidth: "100%" }} src={crashtext} alt="crashcoursetext" />
+                  <Image style={{ maxWidth: "80%" }} src={crashtext} alt="crashcoursetext" />
                 </div>
               </Box>
 
@@ -182,9 +182,9 @@ const Combine = () => {
               zIndex={'0'}
               position={'relative'}
             >
-              <div>
+              {/* <div>
                 <img src={offer} className="offer-img" />
-              </div>
+              </div> */}
               <Box>
 
 

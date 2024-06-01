@@ -42,7 +42,7 @@ export default function Review() {
   }, []);
 
   return (
-    <Grid background={"#00013A"} marginLeft="auto" marginRight="auto">
+    <Grid background={"#050845"} marginLeft="auto" marginRight="auto">
       <Grid
         templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
         gap={6}

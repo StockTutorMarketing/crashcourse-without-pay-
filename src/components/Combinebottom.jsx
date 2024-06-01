@@ -10,7 +10,7 @@ const Combinebottom = () => {
     <>
         <Box bgGradient="linear(to-r, #131543, #525368, #131543)" pb={20}>
         <Box margin={'auto'} pb={4} textAlign={{base:'center', sm:'left', md:'left', lg:'left'}} width={'90%'}>
-          <Heading fontFamily={'roboto'} color={"whitesmoke"} fontSize={{base:24, sm:24, md:28, lg:36}} fontWeight={500}>Our Tutors</Heading>
+          <Heading textAlign={"center"} paddingBottom={"15px"} fontFamily={'roboto'} color={"whitesmoke"} fontSize={{base:24, sm:24, md:28, lg:36}} fontWeight={500}>Our Tutors</Heading>
         </Box>
 
         <Box>
